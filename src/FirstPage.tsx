@@ -7,14 +7,14 @@ import Button from '@mui/material/Button';
 
 const FirstPage: React.FC = () => {
     const navigate = useNavigate();
-    const [name, setName] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [email, setEmail] = useState('');
-    const [errors, setErrors] = useState({});
+    const [name, setName] = useState<string>('');
+    const [phoneNumber, setPhoneNumber] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [errors, setErrors] = useState<{ name?: string; phoneNumber?: string; email?: string }>({});
 
-    const validatePhoneNumber = (phone) => /^\d{10}$/.test(phone);
+    const validatePhoneNumber = (phone: string) => /^\d{10}$/.test(phone);
 
-    const validateEmail = (email) =>
+    const validateEmail = (email: string) =>
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
 
     const handleFormSubmit = (e: React.FormEvent) => {
